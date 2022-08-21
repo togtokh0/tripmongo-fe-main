@@ -12,6 +12,7 @@ function getCookie(c_name: string) {
     }
   }
 }
+
 axios.defaults.baseURL = config.BACK_END_URL;
 axios.defaults.headers.common["Authorization"] = "Bearer " + getCookie("token");
 const f: any = axios;

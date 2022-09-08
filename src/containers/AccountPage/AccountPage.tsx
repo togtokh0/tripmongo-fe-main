@@ -35,7 +35,7 @@ const AccountPage: FC<AccountPageProps> = ({ className = "" }) => {
                 <Avatar
                   sizeClass="w-32 h-32"
                   imgUrl={
-                    "/uploads/tripmongol/image/png/6319a6ef832f78aed400a99b.png"
+                    "/uploads/holidays/image/webp/630a4f41eb9c8e4916553861.webp"
                   }
                   userName={auth?.user?.user_email}
                   hasChecked={true}

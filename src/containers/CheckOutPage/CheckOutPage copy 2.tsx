@@ -62,10 +62,10 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
           <div className="py-5 sm:px-5 space-y-3">
             <div>
               <span className="text-sm text-neutral-500 dark:text-neutral-400 line-clamp-1">
-                {data.tour.title}
+                {data.tour.name}
               </span>
               <span className="text-base font-medium mt-1 block">
-                {data.tour.address}
+                {data.tour.name}
               </span>
             </div>
             <span className="block  text-sm text-neutral-500 dark:text-neutral-400"></span>
@@ -145,49 +145,44 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
 
         <div>
           <h3 className="text-2xl font-semibold">{auth.site_data.Pay_with}</h3>
-          {data.type ? (
-            <div className=" w-full h-[50px] rounded-lg bg-green-400 mt-6 text-center pt-3">
-              Payed
-            </div>
-          ) : (
-            <div className="mt-6">
-              <Tab.Group>
-                <Tab.List className="flex">
-                  <Tab as={Fragment}>
-                    {({ selected }) => (
-                      <button
-                        className={`px-4 py-1.5 sm:px-6 sm:py-2.5 rounded-full focus:outline-none ${
-                          selected
-                            ? "bg-neutral-800 text-white"
-                            : "text-neutral-6000 dark:text-neutral-400"
-                        }`}
-                      >
-                        Qpay
-                      </button>
-                    )}
-                  </Tab>
-                  <Tab as={Fragment}>
-                    {({ selected }) => (
-                      <button
-                        className={`px-4 py-1.5 sm:px-6 sm:py-2.5  rounded-full flex items-center justify-center focus:outline-none  ${
-                          selected
-                            ? "bg-neutral-800 text-white"
-                            : " text-neutral-6000 dark:text-neutral-400"
-                        }`}
-                      >
-                        <span className="mr-2.5">Credit card</span>
-                        <img className="w-8" src={visaPng} alt="" />
-                        <img className="w-8" src={mastercardPng} alt="" />
-                      </button>
-                    )}
-                  </Tab>
-                </Tab.List>
+          <div className="mt-6">
+            <Tab.Group>
+              <Tab.List className="flex">
+                <Tab as={Fragment}>
+                  {({ selected }) => (
+                    <button
+                      className={`px-4 py-1.5 sm:px-6 sm:py-2.5 rounded-full focus:outline-none ${
+                        selected
+                          ? "bg-neutral-800 text-white"
+                          : "text-neutral-6000 dark:text-neutral-400"
+                      }`}
+                    >
+                      Qpay
+                    </button>
+                  )}
+                </Tab>
+                <Tab as={Fragment}>
+                  {({ selected }) => (
+                    <button
+                      className={`px-4 py-1.5 sm:px-6 sm:py-2.5  rounded-full flex items-center justify-center focus:outline-none  ${
+                        selected
+                          ? "bg-neutral-800 text-white"
+                          : " text-neutral-6000 dark:text-neutral-400"
+                      }`}
+                    >
+                      <span className="mr-2.5">Credit card</span>
+                      <img className="w-8" src={visaPng} alt="" />
+                      <img className="w-8" src={mastercardPng} alt="" />
+                    </button>
+                  )}
+                </Tab>
+              </Tab.List>
 
-                <div className="w-14 border-b border-neutral-200 my-5"></div>
-                <Tab.Panels>
-                  <Tab.Panel className="space-y-5">
-                    <div className="space-y-1">
-                      {/* <div className="flex-shrink-0 w-full sm:w-30">
+              <div className="w-14 border-b border-neutral-200 my-5"></div>
+              <Tab.Panels>
+                <Tab.Panel className="space-y-5">
+                  <div className="space-y-1">
+                    {/* <div className="flex-shrink-0 w-full sm:w-30">
                       <div className=" aspect-w-4 aspect-h-3 sm:aspect-h-4 rounded-2xl overflow-hidden">
                         <NcImage
                           src={`data:image/png;base64,${qpay.qr_image}`}
@@ -203,48 +198,47 @@ const CheckOutPage: FC<CheckOutPageProps> = ({ className = "" }) => {
                         </div>
                       ))}
                     </div> */}
-                    </div>
-                    {/* <div className="pt-4">
+                  </div>
+                  {/* <div className="pt-4">
                     <ButtonPrimary></ButtonPrimary>
                   </div> */}
-                  </Tab.Panel>
-                  <Tab.Panel className="space-y-5">
-                    {/* <div className="space-y-1">
-                      <Label>Card number </Label>
-                      <Input defaultValue="111 112 222 999" />
+                </Tab.Panel>
+                <Tab.Panel className="space-y-5">
+                  <div className="space-y-1">
+                    <Label>Card number </Label>
+                    <Input defaultValue="111 112 222 999" />
+                  </div>
+                  <div className="space-y-1">
+                    <Label>Card holder </Label>
+                    <Input defaultValue="JOHN DOE" />
+                  </div>
+                  <div className="flex space-x-5  ">
+                    <div className="flex-1 space-y-1">
+                      <Label>Expiration date </Label>
+                      <Input type="date" defaultValue="MM/YY" />
                     </div>
-                    <div className="space-y-1">
-                      <Label>Card holder </Label>
-                      <Input defaultValue="JOHN DOE" />
+                    <div className="flex-1 space-y-1">
+                      <Label>CVC </Label>
+                      <Input />
                     </div>
-                    <div className="flex space-x-5  ">
-                      <div className="flex-1 space-y-1">
-                        <Label>Expiration date </Label>
-                        <Input type="date" defaultValue="MM/YY" />
-                      </div>
-                      <div className="flex-1 space-y-1">
-                        <Label>CVC </Label>
-                        <Input />
-                      </div>
-                    </div>
-                    <div className="space-y-1">
-                      <Label>Messager for author </Label>
-                      <Textarea placeholder="..." />
-                      <span className="text-sm text-neutral-500 block">
-                        Write a few sentences about yourself.
-                      </span>
-                    </div>
-                    <div className="pt-4">
-                      <ButtonPrimary>
-                        {" "}
-                        {auth.site_data.Confirm_and_pay}
-                      </ButtonPrimary>
-                    </div> */}
-                  </Tab.Panel>
-                </Tab.Panels>
-              </Tab.Group>
-            </div>
-          )}
+                  </div>
+                  <div className="space-y-1">
+                    <Label>Messager for author </Label>
+                    <Textarea placeholder="..." />
+                    <span className="text-sm text-neutral-500 block">
+                      Write a few sentences about yourself.
+                    </span>
+                  </div>
+                  <div className="pt-4">
+                    <ButtonPrimary>
+                      {" "}
+                      {auth.site_data.Confirm_and_pay}
+                    </ButtonPrimary>
+                  </div>
+                </Tab.Panel>
+              </Tab.Panels>
+            </Tab.Group>
+          </div>
         </div>
       </div>
     );

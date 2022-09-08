@@ -8,11 +8,11 @@ import PostTypeFeaturedIcon from "components/PostTypeFeaturedIcon/PostTypeFeatur
 
 export interface Card3Props {
   className?: string;
-  post: PostDataType;
+  post: any;
 }
 
 const Card3: FC<Card3Props> = ({ className = "h-full", post }) => {
-  const { title, href, featuredImage, desc, categories, postType } = post;
+  const { title, href, featuredImage, desc, categories, postType, _id } = post;
 
   return (
     <div
@@ -26,7 +26,11 @@ const Card3: FC<Card3Props> = ({ className = "h-full", post }) => {
             <h2
               className={`nc-card-title block font-semibold text-neutral-900 dark:text-neutral-100 text-xl`}
             >
-              <Link to={href} className="line-clamp-2" title={title}>
+              <Link
+                to={href + "/" + _id}
+                className="line-clamp-2"
+                title={title}
+              >
                 {title}
               </Link>
             </h2>
@@ -45,7 +49,7 @@ const Card3: FC<Card3Props> = ({ className = "h-full", post }) => {
         className={`block flex-shrink-0 sm:w-56 sm:ml-6 rounded-3xl overflow-hidden mb-5 sm:mb-0`}
       >
         <Link
-          to={href}
+          to={href + "/" + _id}
           className={`block w-full h-0 aspect-h-9 sm:aspect-h-16 aspect-w-16 `}
         >
           <NcImage

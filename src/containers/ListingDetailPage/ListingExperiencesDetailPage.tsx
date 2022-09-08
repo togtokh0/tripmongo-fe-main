@@ -58,164 +58,191 @@ const icon_demo = [
   {
     id: 1,
     class: "la-key",
-    name_1: null,
-    name_2: null,
+    name_1: "Key",
+    name_2: "Түлхүүр",
+    type: false,
   },
   {
     id: 2,
     class: "la-luggage-cart",
-    name_1: null,
-    name_2: null,
+    name_1: "luggage cart",
+    name_2: "Түрдэг тэрэг",
+    type: false,
   },
   {
     id: 3,
     class: "la-shower",
-    name_1: null,
-    name_2: null,
+    name_1: "Shower",
+    name_2: "Душ",
+    type: false,
   },
   {
     id: 4,
     class: "la-smoking",
-    name_1: null,
-    name_2: null,
+    name_1: "Smoking",
+    name_2: "Тамхины өрөө",
+    type: false,
   },
   {
     id: 5,
     class: "la-snowflake",
-    name_1: null,
-    name_2: null,
+    name_1: "Winter lodging",
+    name_2: "Өвлийн байр",
+    type: false,
   },
   {
     id: 6,
     class: "la-spa",
-    name_1: null,
-    name_2: null,
+    name_1: "기념품점",
+    name_2: "Souvenir shop",
+    type: false,
   },
   {
     id: 7,
     class: "la-suitcase",
-    name_1: null,
-    name_2: null,
+    name_1: "Carrier storage",
+    name_2: "Ачаа хадгалалт",
+    type: false,
   },
   {
     id: 8,
     class: "la-suitcase-rolling",
-    name_1: null,
-    name_2: null,
+    name_1: "Suitcase rolling",
+    name_2: "Тээш",
+    type: false,
   },
   {
     id: 9,
     class: "la-swimmer",
-    name_1: null,
-    name_2: null,
+    name_1: "Swimming pool",
+    name_2: "Сэлэлт",
+    type: false,
   },
   {
     id: 10,
     class: "la-swimming-pool",
-    name_1: null,
-    name_2: null,
+    name_1: "Swimming pool",
+    name_2: "Усан сан",
+    type: false,
   },
   {
     id: 11,
     class: "la-tv",
-    name_1: null,
-    name_2: null,
+    name_1: "TV",
+    name_2: "TV",
+    type: false,
   },
   {
     id: 12,
     class: "la-umbrella-beach",
-    name_1: null,
-    name_2: null,
+    name_1: "Umbrella beach",
+    name_2: "Гадна саравч",
+    type: false,
   },
   {
     id: 13,
     class: "la-utensils",
-    name_1: null,
-    name_2: null,
+    name_1: "Meal",
+    name_2: "Хоол",
+    type: false,
   },
   {
     id: 14,
     class: "la-wheelchair",
-    name_1: null,
-    name_2: null,
+    name_1: "Wheel chair",
+    name_2: "Тэргэнцэр",
+    type: false,
   },
   {
     id: 15,
     class: "la-wifi",
-    name_1: null,
-    name_2: null,
+    name_1: "WIFI",
+    name_2: "Интернет",
+    type: false,
   },
   {
     id: 16,
     class: "la-baby-carriage",
-    name_1: null,
-    name_2: null,
+    name_1: "Baby carriage",
+    name_2: "Хүүхдийн тэрэг",
+    type: false,
   },
   {
     id: 17,
     class: "la-bath",
-    name_1: null,
-    name_2: null,
+    name_1: "Bath",
+    name_2: "Ванн",
+    type: false,
   },
   {
     id: 18,
     class: "la-bed",
-    name_1: null,
-    name_2: null,
+    name_1: "Bed",
+    name_2: "Ор",
+    type: false,
   },
   {
     id: 19,
     class: "la-briefcase",
-    name_1: null,
-    name_2: null,
+    name_1: "Мeeting room",
+    name_2: "Хурлын өрөө",
+    type: false,
   },
   {
     id: 20,
     class: "la-car",
-    name_1: null,
-    name_2: null,
+    name_1: "Car",
+    name_2: "Аяллын машин",
+    type: false,
   },
   {
     id: 21,
     class: "la-cocktail",
-    name_1: null,
-    name_2: null,
+    name_1: "Restaraunt",
+    name_2: "Ресторан",
+    type: false,
   },
   {
     id: 22,
     class: "la-coffee",
-    name_1: null,
-    name_2: null,
+    name_1: "Breakfast",
+    name_2: "Өглөөний хоол",
+    type: false,
   },
   {
     id: 23,
     class: "la-concierge-bell",
-    name_1: null,
-    name_2: null,
+    name_1: "Special meal",
+    name_2: "Захиалгын хоол",
+    type: false,
   },
   {
     id: 24,
     class: "la-dice",
-    name_1: null,
-    name_2: null,
+    name_1: "Activity",
+    name_2: "Нэмэлт хөтөлбөр",
+    type: false,
   },
   {
     id: 25,
     class: "la-dumbbell",
-    name_1: null,
-    name_2: null,
+    name_1: "Fitness",
+    name_2: "Фитнесс",
+    type: false,
   },
   {
     id: 26,
     class: "la-hot-tub",
-    name_1: null,
-    name_2: null,
+    name_1: "Hot spring",
+    name_2: "Халуун рашаан",
+    type: false,
   },
   {
     id: 27,
     class: "la-infinity",
-    name_1: null,
-    name_2: null,
+    name_1: "Tour Guide",
+    name_2: "Хөтөч",
+    type: false,
   },
 ];
 const ListingExperiencesDetailPage: FC<ListingExperiencesDetailPageProps> = ({
@@ -270,16 +297,20 @@ const ListingExperiencesDetailPage: FC<ListingExperiencesDetailPageProps> = ({
       amount[0] * guestAdults +
       amount[1] * guestChildren +
       amount[2] * guestInfants;
+    const body = {
+      user_id: auth?.user?._id,
+      amount: amount_all,
+      travelers: [guestAdults, guestChildren, guestInfants],
+      type: 0,
+      income_amount: data.pre_payment,
+      date: selectedDate,
+      tour_id: id,
+    };
     await axios
-      .post(`/order/${id}`, {
-        amount: amount_all,
-        traveler: [guestAdults, guestChildren, guestInfants],
-        date: selectedDate,
-        income_amount: (amount_all / 100) * 10,
-      })
+      .post(`/order/`, body)
       .then(async (result: any) => {
         if (result.data.success) {
-          routerHistory.push(`../checkout/${result.data.data}`);
+          routerHistory.push(`../checkout/${result.data.data._id}`);
         } else {
           alert(result.data.message);
         }
@@ -382,7 +413,7 @@ const ListingExperiencesDetailPage: FC<ListingExperiencesDetailPageProps> = ({
         <h2 className="text-2xl font-semibold">{auth.site_data.description}</h2>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
-          <p>{data.about}</p>
+          <p dangerouslySetInnerHTML={{ __html: data.about }}></p>
         </div>
       </div>
     );
@@ -411,7 +442,7 @@ const ListingExperiencesDetailPage: FC<ListingExperiencesDetailPageProps> = ({
                   >
                     <i className={`text-3xl las ${item.class}`}></i>
                     <span className=" ">
-                      {auth.lang == "mon" ? item.name_1 : item.name_2}
+                      {auth.lang == "any" ? item.name_2 : item.name_1}
                     </span>
                   </div>
                 ))}

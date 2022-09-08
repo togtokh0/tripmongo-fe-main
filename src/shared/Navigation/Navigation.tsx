@@ -1,8 +1,10 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, Fragment, useContext } from "react";
 import NavigationItem from "./NavigationItem";
 import { NAVIGATION_DEMO } from "data/navigation";
 import axios from "../../axios";
+import AuthContext from "context/AuthContext";
 function Navigation() {
+  const auth: any = useContext(AuthContext);
   const [data, setData] = useState(NAVIGATION_DEMO);
   const [data2, setData2] = useState(NAVIGATION_DEMO);
   const [loading, setLoading] = useState(true);
@@ -21,9 +23,19 @@ function Navigation() {
         <Fragment></Fragment>
       ) : (
         <Fragment>
-          {data.map((item) => (
-            <NavigationItem key={item.id} menuItem={item} />
-          ))}
+          {auth.lang == "en" ? (
+            <>
+              {data.map((item) => (
+                <NavigationItem key={item.id} menuItem={item} />
+              ))}
+            </>
+          ) : (
+            <>
+              {data2.map((item) => (
+                <NavigationItem key={item.id} menuItem={item} />
+              ))}
+            </>
+          )}
         </Fragment>
       )}
     </ul>

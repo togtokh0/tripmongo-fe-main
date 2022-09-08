@@ -79,7 +79,7 @@ const FooterNav = () => {
 
     WIN_PREV_POSITION = currentScrollPos;
   };
-
+  return <div></div>;
   return (
     <div
       ref={containerRef}

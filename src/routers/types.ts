@@ -29,7 +29,7 @@ export interface LocationStates {
   "/listing-car-map"?: {};
   "/listing-car-detail"?: {};
   //
-  "/checkout"?: {};
+  "/checkout/:id"?: {};
   "/pay-done"?: {};
   //
   "/account"?: {};

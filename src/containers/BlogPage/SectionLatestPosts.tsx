@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import Heading from "components/Heading/Heading";
 import { DEMO_POSTS } from "data/posts";
 import { PostDataType } from "data/types";
@@ -8,7 +8,7 @@ import WidgetTags from "./WidgetTags";
 import WidgetCategories from "./WidgetCategories";
 import WidgetPosts from "./WidgetPosts";
 import Card3 from "./Card3";
-
+import AuthContext from "context/AuthContext";
 // THIS IS DEMO FOR MAIN DEMO
 // OTHER DEMO WILL PASS PROPS
 const postsDemo: PostDataType[] = DEMO_POSTS.filter((_, i) => i > 7 && i < 14);
@@ -24,6 +24,7 @@ const SectionLatestPosts: FC<SectionLatestPostsProps> = ({
   postCardName = "card3",
   className = "",
 }) => {
+  const auth: any = useContext(AuthContext);
   const renderCard = (post: PostDataType) => {
     switch (postCardName) {
       case "card3":
@@ -38,13 +39,15 @@ const SectionLatestPosts: FC<SectionLatestPostsProps> = ({
     <div className={`nc-SectionLatestPosts relative ${className}`}>
       <div className="flex flex-col lg:flex-row">
         <div className="w-full lg:w-3/5 xl:w-2/3 xl:pr-14">
-          <Heading>Latest Articles 🎈</Heading>
+          <Heading desc={auth.site_data.Latest_Articles_dec}>
+            {auth.site_data.Latest_Articles}
+          </Heading>
           <div className={`grid gap-6 md:gap-8 grid-cols-1`}>
             {posts.map((post) => renderCard(post))}
           </div>
           <div className="flex flex-col mt-12 md:mt-20 space-y-5 sm:space-y-0 sm:space-x-3 sm:flex-row sm:justify-between sm:items-center">
-            <Pagination />
-            <ButtonPrimary>Show me more</ButtonPrimary>
+            {/* <Pagination />
+            <ButtonPrimary>Show me more</ButtonPrimary> */}
           </div>
         </div>
         <div className="w-full space-y-7 mt-24 lg:mt-0 lg:w-2/5 lg:pl-10 xl:pl-0 xl:w-1/3 ">

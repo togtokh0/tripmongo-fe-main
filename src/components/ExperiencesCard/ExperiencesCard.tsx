@@ -11,7 +11,7 @@ import Badge from "shared/Badge/Badge";
 export interface ExperiencesCardProps {
   className?: string;
   ratioClass?: string;
-  data?: ExperiencesDataType;
+  data?: any;
   size?: "default" | "small";
 }
 
@@ -35,6 +35,7 @@ const ExperiencesCard: FC<ExperiencesCardProps> = ({
     reviewStart,
     reviewCount,
     id,
+    _id,
   } = data;
 
   const renderSliderGallery = () => {
@@ -44,7 +45,7 @@ const ExperiencesCard: FC<ExperiencesCardProps> = ({
           uniqueID={`ExperiencesCard_${id}`}
           ratioClass={ratioClass}
           galleryImgs={galleryImgs}
-          href={href}
+          href={href + "/" + _id}
         />
         <BtnLikeIcon isLiked={like} className="absolute right-3 top-3" />
         {saleOff && <SaleOffBadge className="absolute left-3 top-3" />}

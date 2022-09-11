@@ -16,6 +16,11 @@ const SectionHero: FC<SectionHeroProps> = ({
   subHeading,
   btnText,
 }) => {
+  if (!rightImg.includes("http")) {
+    if (rightImg.includes("tripmongol")) {
+      rightImg = `${process.env.REACT_APP_CDN_URL}${rightImg}`;
+    }
+  }
   return (
     <div
       className={`nc-SectionHero relative ${className}`}

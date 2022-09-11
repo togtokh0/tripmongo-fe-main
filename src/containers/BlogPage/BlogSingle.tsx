@@ -25,11 +25,11 @@ const BlogSingle = () => {
       try {
         if (id) {
           const api = await axios.get(`/blog/${id}`);
-          setData(api.data.data);
+          setData(api?.data?.data);
           setLoading(false);
         } else {
           const api = await axios.get(`/blog`);
-          setData(api.data.data[0]);
+          setData(api?.data?.data[0]);
           setLoading(false);
         }
       } catch (error) {}

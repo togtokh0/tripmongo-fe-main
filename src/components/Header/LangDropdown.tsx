@@ -1,8 +1,8 @@
 import { Popover, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/solid";
 import { GlobeAltIcon } from "@heroicons/react/outline";
-import { FC, Fragment } from "react";
-
+import { FC, Fragment, useContext } from "react";
+import AuthContext from "context/AuthContext";
 export const headerLanguage = [
   {
     id: "English",
@@ -10,19 +10,22 @@ export const headerLanguage = [
     description: "United State",
     href: "##",
     active: true,
+    _name: "en",
   },
   {
     id: "Mongolia",
     name: "Монгол",
     description: "Mongolia",
     href: "##",
+    _name: "any",
   },
-  {
-    id: "Korean",
-    name: "한국인",
-    description: "Korean",
-    href: "##",
-  },
+  // {
+  //   id: "Korean",
+  //   name: "한국인",
+  //   description: "Korean",
+  //   href: "##",
+  //   _name: "any",
+  // },
 ];
 
 interface LangDropdownProps {
@@ -32,6 +35,7 @@ interface LangDropdownProps {
 const LangDropdown: FC<LangDropdownProps> = ({
   panelClassName = "z-10 w-screen max-w-[280px] px-4 mt-3 right-0 sm:px-0",
 }) => {
+  const auth: any = useContext(AuthContext);
   return (
     <div className="LangDropdown">
       <Popover className="relative">
@@ -44,7 +48,7 @@ const LangDropdown: FC<LangDropdownProps> = ({
             >
               <GlobeAltIcon className="w-[18px] h-[18px] opacity-80" />
 
-              <span className="ml-2">Language</span>
+              <span className="ml-2">{auth.site_data.language}</span>
               <ChevronDownIcon
                 className={`${open ? "-rotate-180" : "text-opacity-70"}
                   ml-2 h-4 w-4  group-hover:text-opacity-80 transition ease-in-out duration-150`}
@@ -67,9 +71,12 @@ const LangDropdown: FC<LangDropdownProps> = ({
                       <a
                         key={index}
                         href={item.href}
-                        onClick={() => close()}
+                        onClick={() => {
+                          auth.HandleLang(item._name);
+                          close();
+                        }}
                         className={`flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50 ${
-                          item.active
+                          auth.lang == item._name
                             ? "bg-gray-100 dark:bg-neutral-700"
                             : "opacity-80"
                         }`}

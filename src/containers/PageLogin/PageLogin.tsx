@@ -48,9 +48,9 @@ const PageLogin: FC<PageLoginProps> = ({ className = "" }) => {
       .then(async (result: any) => {
         setLoading(false);
         if (result.data.success) {
-          await auth.HandleToken(result.data.token);
+          await auth.HandleToken(result?.data?.token);
           await auth.HandleLogin(true);
-          await auth.HandleUser(result.data.data);
+          await auth.HandleUser(result?.data?.data);
           await history.push("/");
         } else {
           alert(result.data.message);

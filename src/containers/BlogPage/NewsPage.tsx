@@ -20,7 +20,7 @@ const BlogPage: React.FC = () => {
     const fetchData = async () => {
       try {
         const api_menu_1 = await axios.get(`/news`);
-        setData(api_menu_1.data.data);
+        setData(api_menu_1?.data?.data);
         setLoading(false);
       } catch (error) {
         setData(MAGAZINE1_POSTS);
@@ -70,9 +70,11 @@ const BlogPage: React.FC = () => {
           {/* ======= START CONTAINER ============= */}
           <div className="container relative">
             {/* === SECTION 1 === */}
-            <div className="pt-12 pb-16 lg:pb-28">
-              <SectionMagazine5 posts={data} />
-            </div>
+            {data.length > 4 && (
+              <div className="pt-12 pb-16 lg:pb-28">
+                <SectionMagazine5 posts={data} />
+              </div>
+            )}
 
             {/* === SECTION 8 === */}
             <SectionLatestPosts className="py-16 lg:py-28" posts={data} />

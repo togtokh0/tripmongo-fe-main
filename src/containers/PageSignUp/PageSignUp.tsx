@@ -35,15 +35,19 @@ const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
   const auth: any = useContext(AuthContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [first_name, set_first_name] = useState("");
+  const [last_name, set_last_name] = useState("");
   const [loading, setLoading] = useState(false);
   const history = useHistory();
   const loginHandler = async (e: any) => {
     e.preventDefault();
     setLoading(true);
     await axios
-      .post(`/auth/login`, {
-        email,
+      .post(`/auth/`, {
+        user_email: email,
         password,
+        first_name,
+        last_name,
       })
       .then(async (result: any) => {
         setLoading(false);
@@ -103,6 +107,32 @@ const PageSignUp: FC<PageSignUpProps> = ({ className = "" }) => {
             method="post"
             onSubmit={loginHandler}
           >
+            <label className="block">
+              <span className="text-neutral-800 dark:text-neutral-200">
+                {auth.site_data.first_name}
+              </span>
+              <Input
+                type="text"
+                placeholder=""
+                className="mt-1"
+                onChange={(e) => {
+                  set_first_name(e.target.value);
+                }}
+              />
+            </label>
+            <label className="block">
+              <span className="text-neutral-800 dark:text-neutral-200">
+                {auth.site_data.last_name}
+              </span>
+              <Input
+                type="text"
+                placeholder=""
+                className="mt-1"
+                onChange={(e) => {
+                  set_last_name(e.target.value);
+                }}
+              />
+            </label>
             <label className="block">
               <span className="text-neutral-800 dark:text-neutral-200">
                 {auth.site_data.Email_address}

@@ -10,29 +10,30 @@ import {
 import { Fragment, useContext } from "react";
 import Avatar from "shared/Avatar/Avatar";
 import AuthContext from "context/AuthContext";
-const solutions = [
-  {
-    name: "Account",
-    href: "account",
-    icon: UserCircleIcon,
-  },
-  {
-    name: "Booking",
-    href: "account-billing",
-    icon: HomeIcon,
-  },
-];
-
-const solutionsFoot = [
-  {
-    name: "Logout",
-    href: "#",
-    icon: LogoutIcon,
-  },
-];
+import { Link, LinkProps } from "react-router-dom";
 
 export default function AvatarDropdown() {
   const auth: any = useContext(AuthContext);
+  const solutions = [
+    {
+      name: auth.site_data.Account_infomation,
+      href: "account",
+      icon: UserCircleIcon,
+    },
+    {
+      name: auth.site_data.Booking,
+      href: "account-billing",
+      icon: HomeIcon,
+    },
+  ];
+
+  const solutionsFoot = [
+    {
+      name: "Logout",
+      href: "#",
+      icon: LogoutIcon,
+    },
+  ];
   function logout() {
     auth.HandleLogin(false);
     auth.HandleToken("");
@@ -49,7 +50,7 @@ export default function AvatarDropdown() {
               <Avatar
                 sizeClass="w-8 h-8 sm:w-9 sm:h-9"
                 imgUrl={
-                  "/uploads/holidays/image/png/62f9ef566818fb894eb44e61.png"
+                  "/uploads/tripmongol/image/webp/631dfdf6ecda0c54b534663e.webp"
                 }
                 userName={auth?.user?.user_email}
                 hasChecked={true}
@@ -68,9 +69,9 @@ export default function AvatarDropdown() {
                 <div className="overflow-hidden rounded-3xl shadow-lg ring-1 ring-black ring-opacity-5">
                   <div className="relative grid gap-6 bg-white dark:bg-neutral-800 p-7">
                     {solutions.map((item, index) => (
-                      <a
+                      <Link
+                        to={"../../" + item.href}
                         key={index}
-                        href={item.href}
                         className="flex items-center p-2 -m-3 transition duration-150 ease-in-out rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus-visible:ring focus-visible:ring-orange-500 focus-visible:ring-opacity-50"
                       >
                         <div className="flex items-center justify-center flex-shrink-0 text-neutral-500 dark:text-neutral-300">
@@ -79,7 +80,7 @@ export default function AvatarDropdown() {
                         <div className="ml-4">
                           <p className="text-sm font-medium ">{item.name}</p>
                         </div>
-                      </a>
+                      </Link>
                     ))}
                   </div>
                   <hr className="h-[1px] border-t border-neutral-300 dark:border-neutral-700" />

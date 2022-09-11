@@ -74,7 +74,10 @@ const ExperiencesCardH: FC<ExperiencesCardHProps> = ({
         </div>
         {/* <div className="w-14 border-b border-neutral-100 dark:border-neutral-800 my-4"></div> */}
         <div className="hidden sm:block text-sm text-neutral-500 dark:text-neutral-400 mt-4">
-          <span className="line-clamp-4">{about}</span>
+          <span
+            className="line-clamp-4"
+            dangerouslySetInnerHTML={{ __html: about }}
+          ></span>
         </div>
 
         <div className="w-14 border-b border-neutral-100 dark:border-neutral-800 my-4"></div>

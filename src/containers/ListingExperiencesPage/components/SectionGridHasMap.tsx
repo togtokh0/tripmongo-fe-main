@@ -11,7 +11,7 @@ import ExperiencesCardH from "components/ExperiencesCardH/ExperiencesCardH";
 import AuthContext from "context/AuthContext";
 import axios from "../../../axios";
 const DEMO_EXPERIENCES = DEMO_EXPERIENCES_LISTINGS.filter((_, i) => i < 12);
-console.log("s", JSON.stringify(DEMO_EXPERIENCES));
+
 export interface SectionGridHasMapProps {
   data: any;
 }
@@ -30,13 +30,13 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = ({ data }) => {
       try {
         if (!data?._id && !id) {
           const api_ = await axios.get(`/tour`);
-          setData(api_.data.data);
+          setData(api_?.data?.data);
           setTimeout(function () {
             setLoading(false);
           }, 2000);
         } else {
           const api_ = await axios.get(`/tour/category/${data?._id || id}`);
-          setData(api_.data.data);
+          setData(api_?.data?.data);
           setTimeout(function () {
             setLoading(false);
           }, 2000);
@@ -48,6 +48,10 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = ({ data }) => {
     };
     fetchData();
   }, []);
+  const center_def = {
+    lat: parseFloat(r_data[0]?.map?.lat),
+    lng: parseFloat(r_data[0]?.map?.lng),
+  };
   return (
     <div>
       {loading ? (
@@ -138,14 +142,13 @@ const SectionGridHasMap: FC<SectionGridHasMapProps> = ({ data }) => {
                 />
               </div>
               {/* BELLOW IS MY GOOGLE API KEY -- PLEASE DELETE AND TYPE YOUR API KEY */}
-
               <GoogleMapReact
                 bootstrapURLKeys={{
                   key: "AIzaSyAGVJfZMAKYfZ71nzL_v5i3LjTTWnCYwTY",
                 }}
                 yesIWantToUseGoogleMapApiInternals
-                defaultZoom={12}
-                defaultCenter={r_data[0]?.map}
+                defaultZoom={6}
+                defaultCenter={center_def}
               >
                 {r_data?.map((item: any) => (
                   <AnyReactComponent

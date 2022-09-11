@@ -12,8 +12,8 @@ function getCookie(c_name: string) {
     }
   }
 }
-
 axios.defaults.baseURL = config.BACK_END_URL;
 axios.defaults.headers.common["Authorization"] = "Bearer " + getCookie("token");
+axios.defaults.headers.common["Accept-Language"] = getCookie("language");
 const f: any = axios;
 export default f;

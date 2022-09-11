@@ -26,8 +26,8 @@ const NavMobile: React.FC<NavMobileProps> = ({
   useEffect(() => {
     const fetchData = async () => {
       const api_menu_1 = await axios.get(`/fun/menu`);
-      setData(api_menu_1.data.data.first_language);
-      setData2(api_menu_1.data.data.second_language);
+      setData(api_menu_1?.data?.data?.first_language);
+      setData2(api_menu_1?.data?.data?.second_language);
       setLoading(false);
     };
     fetchData();

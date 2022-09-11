@@ -23,11 +23,11 @@ const ListingExperiencesMapPage: FC<ListingExperiencesMapPageProps> = ({
       try {
         if (id) {
           const api = await axios.get(`/category/${id}`);
-          setData(api.data.data);
+          setData(api?.data?.data);
           setLoading(false);
         } else {
           const api = await axios.get(`/category`);
-          setData(api.data.data[0]);
+          setData(api?.data?.data[0]);
           setLoading(false);
         }
       } catch (error) {}

@@ -1,5 +1,5 @@
 import rightImg from "images/about-hero-right.png";
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import SectionFounder from "./SectionFounder";
 import SectionStatistic from "./SectionStatistic";
 import { Helmet } from "react-helmet";
@@ -8,19 +8,20 @@ import BgGlassmorphism from "components/BgGlassmorphism/BgGlassmorphism";
 import BackgroundSection from "components/BackgroundSection/BackgroundSection";
 import SectionHero from "./SectionHero";
 import SectionClientSay from "components/SectionClientSay/SectionClientSay";
-
+import AuthContext from "context/AuthContext";
 export interface PageAboutProps {
   className?: string;
 }
 
 const PageAbout: FC<PageAboutProps> = ({ className = "" }) => {
+  const auth: any = useContext(AuthContext);
   return (
     <div
       className={`nc-PageAbout overflow-hidden relative ${className}`}
       data-nc-id="PageAbout"
     >
       <Helmet>
-        <title>About || Booking React Template</title>
+        <title>About </title>
       </Helmet>
 
       {/* ======== BG GLASS ======== */}
@@ -28,17 +29,17 @@ const PageAbout: FC<PageAboutProps> = ({ className = "" }) => {
 
       <div className="container py-16 lg:py-28 space-y-16 lg:space-y-28">
         <SectionHero
-          rightImg={rightImg}
-          heading="👋 About Us."
+          rightImg={auth.site_data.About_rightImg}
+          heading={auth.site_data.About_us}
           btnText=""
-          subHeading="We’re impartial and independent, and every day we create distinctive, world-class programmes and content which inform, educate and entertain millions of people in the around the world."
+          subHeading={auth.site_data.about_subHeading}
         />
 
-        <SectionFounder />
-        <div className="relative py-16">
+        {/* <SectionFounder /> */}
+        {/* <div className="relative py-16">
           <BackgroundSection />
           <SectionClientSay uniqueClassName="PageAbout_" />
-        </div>
+        </div> */}
 
         <SectionStatistic />
 

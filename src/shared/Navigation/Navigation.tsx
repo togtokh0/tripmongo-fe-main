@@ -1,16 +1,18 @@
-import React, { useState, useEffect, Fragment } from "react";
+import React, { useState, useEffect, Fragment, useContext } from "react";
 import NavigationItem from "./NavigationItem";
 import { NAVIGATION_DEMO } from "data/navigation";
 import axios from "../../axios";
+import AuthContext from "context/AuthContext";
 function Navigation() {
+  const auth: any = useContext(AuthContext);
   const [data, setData] = useState(NAVIGATION_DEMO);
   const [data2, setData2] = useState(NAVIGATION_DEMO);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
       const api_menu_1 = await axios.get(`/fun/menu`);
-      setData(api_menu_1.data.data.first_language);
-      setData2(api_menu_1.data.data.second_language);
+      setData(api_menu_1?.data?.data?.first_language);
+      setData2(api_menu_1?.data?.data?.second_language);
       setLoading(false);
     };
     fetchData();
@@ -21,9 +23,19 @@ function Navigation() {
         <Fragment></Fragment>
       ) : (
         <Fragment>
-          {data.map((item) => (
-            <NavigationItem key={item.id} menuItem={item} />
-          ))}
+          {auth.lang == "en" ? (
+            <>
+              {data.map((item: any, index: any) => (
+                <NavigationItem key={"nav" + index} menuItem={item} />
+              ))}
+            </>
+          ) : (
+            <>
+              {data2.map((item, index: any) => (
+                <NavigationItem key={"nav" + index} menuItem={item} />
+              ))}
+            </>
+          )}
         </Fragment>
       )}
     </ul>

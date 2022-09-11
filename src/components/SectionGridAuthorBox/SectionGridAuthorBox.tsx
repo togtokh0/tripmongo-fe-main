@@ -28,7 +28,7 @@ const SectionGridAuthorBox: FC<SectionGridAuthorBoxProps> = ({
     const fetchData = async () => {
       try {
         const api_menu_1 = await axios.get(`/author`);
-        setData(api_menu_1.data.data);
+        setData(api_menu_1?.data?.data);
         setloading(false);
       } catch (error) {
         setData(DEMO_DATA);
@@ -78,7 +78,7 @@ const SectionGridAuthorBox: FC<SectionGridAuthorBoxProps> = ({
             ) : (
               <CardAuthorBox
                 index={index < 3 ? index + 1 : undefined}
-                key={author.id}
+                key={index}
                 author={author}
               />
             )

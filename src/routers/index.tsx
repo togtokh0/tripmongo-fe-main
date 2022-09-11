@@ -103,7 +103,7 @@ export const pages: Page[] = [
   //
   { path: "/listing-flights", component: ListingFlightsPage },
   //
-  { path: "/checkout", component: CheckOutPage },
+  { path: "/checkout/:id", component: CheckOutPage },
   { path: "/pay-done", component: PayPage },
   //
   { path: "/author", component: AuthorPage },
@@ -137,13 +137,34 @@ export const pages: Page[] = [
   { path: "/subscription", component: PageSubcription },
   //
 ];
-
+function getCookie(c_name: string) {
+  let i, x, y;
+  const ARRcookies = document.cookie.split(";");
+  for (i = 0; i < ARRcookies.length; i++) {
+    x = ARRcookies[i].substr(0, ARRcookies[i].indexOf("="));
+    y = ARRcookies[i].substr(ARRcookies[i].indexOf("=") + 1);
+    x = x.replace(/^\s+|\s+$/g, "");
+    if (x == c_name) {
+      return unescape(y);
+    }
+  }
+}
 const Routes = () => {
   const auth: any = useContext(AuthContext);
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const fetchData = async () => {
-      await auth.HandleData(data[0]);
+      const def_lang = await getCookie("language");
+      if (def_lang) {
+        if (def_lang != "en" && def_lang != "any") {
+          auth.HandleLang("en");
+        } else {
+          auth.HandleLang(def_lang);
+        }
+      } else {
+        auth.HandleLang("en");
+      }
+
       await axios
         .get(`/verify_token`)
         .then(async (result: any) => {

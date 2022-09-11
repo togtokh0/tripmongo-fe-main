@@ -30,6 +30,7 @@ import ExperiencesDateSingleInput from "components/HeroSearchForm/ExperiencesDat
 import MobileFooterSticky from "./MobileFooterSticky";
 import axios from "../../axios";
 import AuthContext from "context/AuthContext";
+import { includes } from "lodash";
 export interface ListingExperiencesDetailPageProps {
   className?: string;
 }
@@ -57,164 +58,191 @@ const icon_demo = [
   {
     id: 1,
     class: "la-key",
-    name_1: null,
-    name_2: null,
+    name_1: "Key",
+    name_2: "Түлхүүр",
+    type: false,
   },
   {
     id: 2,
     class: "la-luggage-cart",
-    name_1: null,
-    name_2: null,
+    name_1: "luggage cart",
+    name_2: "Түрдэг тэрэг",
+    type: false,
   },
   {
     id: 3,
     class: "la-shower",
-    name_1: null,
-    name_2: null,
+    name_1: "Shower",
+    name_2: "Душ",
+    type: false,
   },
   {
     id: 4,
     class: "la-smoking",
-    name_1: null,
-    name_2: null,
+    name_1: "Smoking",
+    name_2: "Тамхины өрөө",
+    type: false,
   },
   {
     id: 5,
     class: "la-snowflake",
-    name_1: null,
-    name_2: null,
+    name_1: "Winter lodging",
+    name_2: "Өвлийн байр",
+    type: false,
   },
   {
     id: 6,
     class: "la-spa",
-    name_1: null,
-    name_2: null,
+    name_1: "기념품점",
+    name_2: "Souvenir shop",
+    type: false,
   },
   {
     id: 7,
     class: "la-suitcase",
-    name_1: null,
-    name_2: null,
+    name_1: "Carrier storage",
+    name_2: "Ачаа хадгалалт",
+    type: false,
   },
   {
     id: 8,
     class: "la-suitcase-rolling",
-    name_1: null,
-    name_2: null,
+    name_1: "Suitcase rolling",
+    name_2: "Тээш",
+    type: false,
   },
   {
     id: 9,
     class: "la-swimmer",
-    name_1: null,
-    name_2: null,
+    name_1: "Swimming pool",
+    name_2: "Сэлэлт",
+    type: false,
   },
   {
     id: 10,
     class: "la-swimming-pool",
-    name_1: null,
-    name_2: null,
+    name_1: "Swimming pool",
+    name_2: "Усан сан",
+    type: false,
   },
   {
     id: 11,
     class: "la-tv",
-    name_1: null,
-    name_2: null,
+    name_1: "TV",
+    name_2: "TV",
+    type: false,
   },
   {
     id: 12,
     class: "la-umbrella-beach",
-    name_1: null,
-    name_2: null,
+    name_1: "Umbrella beach",
+    name_2: "Гадна саравч",
+    type: false,
   },
   {
     id: 13,
     class: "la-utensils",
-    name_1: null,
-    name_2: null,
+    name_1: "Meal",
+    name_2: "Хоол",
+    type: false,
   },
   {
     id: 14,
     class: "la-wheelchair",
-    name_1: null,
-    name_2: null,
+    name_1: "Wheel chair",
+    name_2: "Тэргэнцэр",
+    type: false,
   },
   {
     id: 15,
     class: "la-wifi",
-    name_1: null,
-    name_2: null,
+    name_1: "WIFI",
+    name_2: "Интернет",
+    type: false,
   },
   {
     id: 16,
     class: "la-baby-carriage",
-    name_1: null,
-    name_2: null,
+    name_1: "Baby carriage",
+    name_2: "Хүүхдийн тэрэг",
+    type: false,
   },
   {
     id: 17,
     class: "la-bath",
-    name_1: null,
-    name_2: null,
+    name_1: "Bath",
+    name_2: "Ванн",
+    type: false,
   },
   {
     id: 18,
     class: "la-bed",
-    name_1: null,
-    name_2: null,
+    name_1: "Bed",
+    name_2: "Ор",
+    type: false,
   },
   {
     id: 19,
     class: "la-briefcase",
-    name_1: null,
-    name_2: null,
+    name_1: "Мeeting room",
+    name_2: "Хурлын өрөө",
+    type: false,
   },
   {
     id: 20,
     class: "la-car",
-    name_1: null,
-    name_2: null,
+    name_1: "Car",
+    name_2: "Аяллын машин",
+    type: false,
   },
   {
     id: 21,
     class: "la-cocktail",
-    name_1: null,
-    name_2: null,
+    name_1: "Restaraunt",
+    name_2: "Ресторан",
+    type: false,
   },
   {
     id: 22,
     class: "la-coffee",
-    name_1: null,
-    name_2: null,
+    name_1: "Breakfast",
+    name_2: "Өглөөний хоол",
+    type: false,
   },
   {
     id: 23,
     class: "la-concierge-bell",
-    name_1: null,
-    name_2: null,
+    name_1: "Special meal",
+    name_2: "Захиалгын хоол",
+    type: false,
   },
   {
     id: 24,
     class: "la-dice",
-    name_1: null,
-    name_2: null,
+    name_1: "Activity",
+    name_2: "Нэмэлт хөтөлбөр",
+    type: false,
   },
   {
     id: 25,
     class: "la-dumbbell",
-    name_1: null,
-    name_2: null,
+    name_1: "Fitness",
+    name_2: "Фитнесс",
+    type: false,
   },
   {
     id: 26,
     class: "la-hot-tub",
-    name_1: null,
-    name_2: null,
+    name_1: "Hot spring",
+    name_2: "Халуун рашаан",
+    type: false,
   },
   {
     id: 27,
     class: "la-infinity",
-    name_1: null,
-    name_2: null,
+    name_1: "Tour Guide",
+    name_2: "Хөтөч",
+    type: false,
   },
 ];
 const ListingExperiencesDetailPage: FC<ListingExperiencesDetailPageProps> = ({
@@ -232,16 +260,30 @@ const ListingExperiencesDetailPage: FC<ListingExperiencesDetailPageProps> = ({
   const { id } = params;
   const [data, setData] = useState<any>([]);
   const [loading, setLoading] = useState(true);
+  const [guestAdults, setguestAdults] = useState<any | null>(1);
+  const [guestChildren, setguestChildren] = useState<any | null>(0);
+  const [guestInfants, setguestInfants] = useState<any | null>(0);
+  const [amount, seamount] = useState([0, 0, 0]);
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (id) {
           const api = await axios.get(`/complex/${id}`);
-          setData(api.data.data);
+          seamount([
+            api?.data?.data?.amount_0,
+            api?.data?.data?.amount_1,
+            api?.data?.data?.amount_2,
+          ]);
+          setData(api?.data?.data);
           setLoading(false);
         } else {
           const api = await axios.get(`/complex`);
-          setData(api.data.data[0]);
+          seamount([
+            api?.data?.data?.amount_0,
+            api?.data?.data?.amount_1,
+            api?.data?.data?.amount_2,
+          ]);
+          setData(api?.data?.data[0]);
           setLoading(false);
         }
       } catch (error) {}
@@ -249,26 +291,26 @@ const ListingExperiencesDetailPage: FC<ListingExperiencesDetailPageProps> = ({
     fetchData();
   }, [id]);
   ///
-  const [guestAdults, setguestAdults] = useState<any | null>(1);
-  const [guestChildren, setguestChildren] = useState<any | null>(0);
-  const [guestInfants, setguestInfants] = useState<any | null>(0);
-  const [amount, seamount] = useState([0, 0, 0]);
-  const [icons, seticons] = useState(icon_demo);
+
   const ordering = async () => {
     const amount_all =
       amount[0] * guestAdults +
       amount[1] * guestChildren +
       amount[2] * guestInfants;
+    const body = {
+      user_id: auth?.user?._id,
+      amount: amount_all,
+      travelers: [guestAdults, guestChildren, guestInfants],
+      type: 0,
+      income_amount: data.pre_payment,
+      date: selectedDate,
+      tour_id: id,
+    };
     await axios
-      .post(`/order/${id}`, {
-        amount: amount_all,
-        traveler: [guestAdults, guestChildren, guestInfants],
-        date: selectedDate,
-        income_amount: (amount_all / 100) * 10,
-      })
+      .post(`/order`, body)
       .then(async (result: any) => {
         if (result.data.success) {
-          routerHistory.push(`../checkout/${result.data.data}`);
+          routerHistory.push(`../checkout/${result.data.data._id}`);
         } else {
           alert(result.data.message);
         }
@@ -371,7 +413,7 @@ const ListingExperiencesDetailPage: FC<ListingExperiencesDetailPageProps> = ({
         <h2 className="text-2xl font-semibold">{auth.site_data.description}</h2>
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         <div className="text-neutral-6000 dark:text-neutral-300">
-          <p>{data.about}</p>
+          <p dangerouslySetInnerHTML={{ __html: data.about }}></p>
         </div>
       </div>
     );
@@ -389,14 +431,23 @@ const ListingExperiencesDetailPage: FC<ListingExperiencesDetailPageProps> = ({
         <div className="w-14 border-b border-neutral-200 dark:border-neutral-700"></div>
         {/* 6 */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 text-sm text-neutral-700 dark:text-neutral-300 ">
-          {icons.map((item) => (
-            <div key={item.name_1} className="flex items-center space-x-3">
-              <i className={`text-3xl las ${item.class}`}></i>
-              <span className=" ">
-                {auth.lang == "mon" ? item.name_1 : item.name_2}
-              </span>
-            </div>
-          ))}
+          {data?.icons && (
+            <>
+              {icon_demo
+                .filter((element: any) => [...data?.icons].includes(element.id))
+                .map((item) => (
+                  <div
+                    key={item.name_1}
+                    className="flex items-center space-x-3"
+                  >
+                    <i className={`text-3xl las ${item.class}`}></i>
+                    <span className=" ">
+                      {auth.lang == "any" ? item.name_2 : item.name_1}
+                    </span>
+                  </div>
+                ))}
+            </>
+          )}
         </div>
       </div>
     );
@@ -437,90 +488,7 @@ const ListingExperiencesDetailPage: FC<ListingExperiencesDetailPageProps> = ({
   };
 
   const renderSection8 = () => {
-    if (auth.lang == "mon") {
-      return (
-        <div className="listingSection__wrap">
-          {/* HEADING */}
-          <h2 className="text-2xl font-semibold">Мэдэх зүйлс</h2>
-          <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-          {/* CONTENT */}
-          <div>
-            <h4 className="text-lg font-semibold">Цуцлах бодлого</h4>
-            <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
-              Аливаа туршлагыг худалдан авснаас хойш 24 цагийн дотор эсвэл
-              туршлага эхлэхээс 7-оос доошгүй хоногийн өмнө цуцалж, төлбөрийг
-              бүрэн буцаан олгох боломжтой.
-            </span>
-          </div>
-          <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-          {/* CONTENT */}
-          <div>
-            <h4 className="text-lg font-semibold">Зочинд тавигдах шаардлага</h4>
-            <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
-              4 ба түүнээс дээш насны 10 хүртэлх зочид оролцох боломжтой. Мөн
-              эцэг эхчүүд 2-оос доош насны хүүхдүүдийг авчирч болно.
-            </span>
-          </div>
-          <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-          {/* CONTENT */}
-          {/* <div>
-            <h4 className="text-lg font-semibold">Юу авчрах вэ</h4>
-            <div className="prose sm:prose">
-              <ul className="mt-3 text-neutral-500 dark:text-neutral-400 space-y-2">
-                <li>
-                  Formal Wear To Visit Bai Dinh Pagoda Be ready before 7.30 Am.
-                </li>
-                <li>We will pick up from 07.30 to 08.00 AM</li>
-              </ul>
-            </div>
-          </div> */}
-        </div>
-      );
-    } else {
-      return (
-        <div className="listingSection__wrap">
-          {/* HEADING */}
-          <h2 className="text-2xl font-semibold">Things to know</h2>
-          <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-          {/* CONTENT */}
-          <div>
-            <h4 className="text-lg font-semibold">Cancellation policy</h4>
-            <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
-              Any experience can be canceled and fully refunded within 24 hours
-              of purchase, or at least 7 days before the experience starts.
-            </span>
-          </div>
-          <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-          {/* CONTENT */}
-          <div>
-            <h4 className="text-lg font-semibold">Guest requirements</h4>
-            <span className="block mt-3 text-neutral-500 dark:text-neutral-400">
-              Up to 10 guests ages 4 and up can attend. Parents may also bring
-              children under 2 years of age.
-            </span>
-          </div>
-          <div className="w-14 border-b border-neutral-200 dark:border-neutral-700" />
-
-          {/* CONTENT */}
-          {/* <div>
-            <h4 className="text-lg font-semibold">What to bring</h4>
-            <div className="prose sm:prose">
-              <ul className="mt-3 text-neutral-500 dark:text-neutral-400 space-y-2">
-                <li>
-                  Formal Wear To Visit Bai Dinh Pagoda Be ready before 7.30 Am.
-                </li>
-                <li>We will pick up from 07.30 to 08.00 AM</li>
-              </ul>
-            </div>
-          </div> */}
-        </div>
-      );
-    }
+    return "";
   };
 
   const renderSidebar = () => {

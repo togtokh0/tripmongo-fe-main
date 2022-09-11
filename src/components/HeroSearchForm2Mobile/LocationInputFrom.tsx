@@ -40,7 +40,7 @@ const LocationInputFrom: FC<Props> = ({
   const renderPanelContent = () => {
     return (
       <div className="flex space-x-4 overflow-x-auto hiddenScrollbar">
-        {data.map((item) => {
+        {data.map((item: any) => {
           const isActive = item.name === value;
           return (
             <div

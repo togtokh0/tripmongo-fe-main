@@ -38,8 +38,8 @@ const SectionGridFeaturePlaces: FC<SectionGridFeaturePlacesProps> = ({
     const fetchData = async () => {
       const api_menu_1 = await axios.get(`/tour`);
       const loc_data = await axios.get(`/fun/location`);
-      seta_tabs(loc_data.data.data);
-      setData(api_menu_1.data.data);
+      seta_tabs(loc_data?.data?.data);
+      setData(api_menu_1?.data?.data);
       setLoading(false);
       console.log(data);
     };

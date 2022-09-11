@@ -20,7 +20,7 @@ const NcImage: FC<NcImageProps> = ({
   ...args
 }) => {
   if (!src.includes("http")) {
-    if (src.includes("tripmongol")) {
+    if (src.includes("holidays")) {
       src = `${process.env.REACT_APP_CDN_URL}${src}`;
     }
   }

@@ -15,10 +15,7 @@ export interface AccountPageProps {
 const AccountPage: FC<AccountPageProps> = ({ className = "" }) => {
   const auth: any = useContext(AuthContext);
   return (
-    <div
-      className={`nc-AccountPage ${className}  h-screen`}
-      data-nc-id="AccountPage"
-    >
+    <div className={`nc-AccountPage ${className} `} data-nc-id="AccountPage">
       <Helmet>
         <title>Account</title>
       </Helmet>
@@ -35,7 +32,7 @@ const AccountPage: FC<AccountPageProps> = ({ className = "" }) => {
                 <Avatar
                   sizeClass="w-32 h-32"
                   imgUrl={
-                    "/uploads/tripmongol/image/webp/631e0297a432a69cd1c60551.webp"
+                    "/uploads/holidays/image/webp/630a4f41eb9c8e4916553861.webp"
                   }
                   userName={auth?.user?.user_email}
                   hasChecked={true}

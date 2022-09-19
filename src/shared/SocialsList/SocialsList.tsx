@@ -1,18 +1,59 @@
 import { SocialType } from "shared/SocialsShare/SocialsShare";
 import React, { FC } from "react";
-
+import svgImg from "./t.svg";
 export interface SocialsListProps {
   className?: string;
   itemClass?: string;
   socials?: SocialType[];
 }
-
-const socialsDemo: SocialType[] = [
+let socialsDemo: SocialType[] = [
   { name: "Facebook", icon: "lab la-facebook-square", href: "#" },
   { name: "Twitter", icon: "lab la-twitter", href: "#" },
   { name: "Youtube", icon: "lab la-youtube", href: "#" },
-  { name: "Instagram", icon: "lab la-instagram", href: "#" },
+  {
+    name: "Instagram",
+    icon: "lab la-instagram",
+    href: "#",
+  },
 ];
+if (document.location.host.includes("holy")) {
+  socialsDemo = [
+    {
+      name: "Facebook",
+      icon: "lab la-facebook-square",
+      href: "https://www.facebook.com/Genco.Tour.Bureau",
+    },
+    { name: "Twitter", icon: "lab la-twitter", href: "#" },
+    {
+      name: "Youtube",
+      icon: "lab la-youtube",
+      href: "https://www.youtube.com/",
+    },
+    {
+      name: "Instagram",
+      icon: "lab la-instagram",
+      href: "https://www.instagram.com/",
+    },
+  ];
+} else {
+  socialsDemo = [
+    {
+      name: "Kakao talk",
+      icon: "svg",
+      href: "https://center-pf.kakao.com/_lLxojT",
+    },
+    {
+      name: "Youtube",
+      icon: "lab la-youtube",
+      href: "https://www.youtube.com/channel/UCyC-YjUdS2DMEGJuFjcTwlw",
+    },
+    {
+      name: "Instagram",
+      icon: "lab la-instagram",
+      href: "https://www.instagram.com/skytoursmongolia/",
+    },
+  ];
+}
 
 const SocialsList: FC<SocialsListProps> = ({
   className = "",
@@ -33,7 +74,17 @@ const SocialsList: FC<SocialsListProps> = ({
           rel="noopener noreferrer"
           title={item.name}
         >
-          <i className={item.icon}></i>
+          {item.icon == "svg" ? (
+            <>
+              <img
+                src={svgImg}
+                alt=""
+                className=" h-[16px] w-[16px] mt-[3px]"
+              />
+            </>
+          ) : (
+            <i className={item.icon}></i>
+          )}
         </a>
       ))}
     </nav>

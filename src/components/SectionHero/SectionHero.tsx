@@ -1,13 +1,31 @@
 import React, { FC, useContext } from "react";
+import { useEffect, useState } from "react";
 import ButtonPrimary from "shared/Button/ButtonPrimary";
 import imagePng from "images/hero-right.png";
 import HeroSearchForm from "components/HeroSearchForm/HeroSearchForm";
 import AuthContext from "context/AuthContext";
+import axios from "../../axios";
 export interface SectionHeroProps {
   className?: string;
 }
 
 const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
+  const [loading, setLoading] = useState(true);
+  const [img, setimg] = useState("");
+  useEffect(() => {
+    const fetchData = async () => {
+      await axios
+        .get(`/media`)
+        .then(async (result: any) => {
+          if (result.data.success) {
+            setimg(result.data.data[0].image);
+            setLoading(false);
+          }
+        })
+        .catch((err: any) => {});
+    };
+    fetchData();
+  }, []);
   const auth: any = useContext(AuthContext);
   return (
     <div
@@ -22,14 +40,28 @@ const SectionHero: FC<SectionHeroProps> = ({ className = "" }) => {
           <span className="text-base md:text-lg text-neutral-500 dark:text-neutral-400">
             {auth.site_data.home.first.body}
           </span>
-          <ButtonPrimary>{auth.site_data.home.first.button}</ButtonPrimary>
+          <ButtonPrimary
+            onClick={() => {
+              window.scrollBy(0, 500);
+            }}
+          >
+            {auth.site_data.home.first.button}
+          </ButtonPrimary>
         </div>
         <div className="flex-grow">
-          <img
-            className="w-full"
-            src={`${process.env.REACT_APP_CDN_URL}${auth.site_data.banner}`}
-            alt="hero"
-          />
+          {loading ? (
+            <img
+              className="w-full"
+              src={`${process.env.REACT_APP_CDN_URL}${auth.site_data.banner}`}
+              alt="hero"
+            />
+          ) : (
+            <img
+              className="w-full"
+              src={`${process.env.REACT_APP_CDN_URL}${img}`}
+              alt="hero"
+            />
+          )}
         </div>
       </div>
 

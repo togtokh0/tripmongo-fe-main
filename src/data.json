@@ -1,8 +1,9 @@
 [
   {
-    "img": "/uploads/tripmongol/image/jpeg/631e01e6b8be330657894f6a.jpg",
-    "imgLight": "/uploads/tripmongol/image/jpeg/631e01e6b8be330657894f6a.jpg",
-    "banner": "/uploads/tripmongol/image/png/6319a79e79c43b6f84d77214.png",
+    "home_search_button_href": "listing",
+    "img": "/uploads/holidays/image/png/6304330d8012b68f51719fe1.png",
+    "imgLight": "/uploads/holidays/image/png/6304330d8012b68f51719fe1.png",
+    "banner": "/uploads/holidays/image/png/6304333108857ef633a9cc92.png",
     "home": {
       "first": {
         "title": "Hotel, car & experiences",
@@ -25,8 +26,8 @@
     "Infants_age": "0-2 us",
     "search_placeholder": "Type the search value and press enter ...",
     "properties": "properties",
-    "Heading_of_ections": "Section title",
-    "Descriptions_for_sections": "Description of sections",
+    "Heading_of_ections": "Tours",
+    "Descriptions_for_sections": "Product",
     "advantages": "Advantages",
     "select_home_1": {
       "start": "ADVANTAGES",
@@ -57,7 +58,7 @@
     "Join_our_newsletter_2": "Get new information faster",
     "Why_did_you_choose_us": "Why did you choose us",
     "Why_did_you_choose_us_desc": "We will create your travel adventures and wonderful memories.",
-    "Become_an_author": "Become an author",
+    "Become_an_author": "More",
     "The_Videos": "Videos",
     "The_Videos_desc": "Special Videos",
     "tours": "Tours",
@@ -106,7 +107,7 @@
     "Latest_Articles": "Latest Articles",
     "Latest_Articles_dec": "Popular places to stay that Chisfis recommends for you",
     "About_us": "👋 About Us.",
-    "About_rightImg": "/uploads/tripmongol/image/png/6319a8338dbfff4f2e4e6a2a.png",
+    "About_rightImg": "/uploads/holidays/image/png/630b5cc532063aaac834693d.png",
     "about_subHeading": "Our goal is to bring innovative and creative changes to the development of Mongolia's tourism industry.",
     "About_h1": "About_h1",
     "About_h2": "About_h2",
@@ -120,9 +121,10 @@
     "last_name": "Last name"
   },
   {
-    "img": "/uploads/tripmongol/image/jpeg/631e01e6b8be330657894f6a.jpg",
-    "imgLight": "/uploads/tripmongol/image/jpeg/631e01e6b8be330657894f6a.jpg",
-    "banner": "/uploads/tripmongol/image/png/6319a79e79c43b6f84d77214.png",
+    "home_search_button_href": "listing",
+    "img": "/uploads/holidays/image/png/6304330d8012b68f51719fe1.png",
+    "imgLight": "/uploads/holidays/image/png/6304330d8012b68f51719fe1.png",
+    "banner": "/uploads/holidays/image/png/6304333108857ef633a9cc92.png",
     "home": {
       "first": {
         "title": "Аялал, кемп, бааз ",
@@ -145,8 +147,8 @@
     "Infants_age": "0-2 нас",
     "search_placeholder": "Хайх утгаа бичээд enter дарна уу...",
     "properties": "Төлөв байдал ",
-    "Heading_of_ections": "Дэд гарчиг",
-    "Descriptions_for_sections": "Дэд тайлбар",
+    "Heading_of_ections": "Аялалууд",
+    "Descriptions_for_sections": "Бүтээгдэхүүн",
     "advantages": "Давуу тал",
     "select_home_1": {
       "start": "ДАВУУ ТАЛ",
@@ -175,9 +177,9 @@
     "Enter_your_email": "Имэйлээ оруулна уу",
     "Join_our_newsletter_1": "Илүү урамшуулал авах ",
     "Join_our_newsletter_2": "Шинэ мэдээлэлийг илүү шуурхай авна",
-    "Why_did_you_choose_us": "Та яагаад биднийг сонгосон хэрэгтэй вэ ?",
+    "Why_did_you_choose_us": "Та яагаад биднийг сонгох хэрэгтэй вэ ?",
     "Why_did_you_choose_us_desc": "Таны мөнхийн дурсамжийг бид бүтээнэ.",
-    "Become_an_author": "Зохиогч болох",
+    "Become_an_author": "Илүү",
     "The_Videos": "Видеонууд",
     "The_Videos_desc": "Манай үйлилгээний талаарх сонирхолтой агшинуудыг үзээрэй",
     "tours": "Аяллууд",
@@ -226,7 +228,7 @@
     "Latest_Articles": "Latest Articles",
     "Latest_Articles_dec": "Popular places to stay that Chisfis recommends for you",
     "About_us": "👋 About Us.",
-    "About_rightImg": "/uploads/tripmongol/image/png/6319a8338dbfff4f2e4e6a2a.png",
+    "About_rightImg": "/uploads/holidays/image/png/630b5cc532063aaac834693d.png",
     "about_subHeading": "We’re impartial and independent, and every day we create distinctive, world-class programmes and content which inform, educate and entertain millions of people in the around the world.",
     "About_h1": "About_h1",
     "About_h2": "About_h2",

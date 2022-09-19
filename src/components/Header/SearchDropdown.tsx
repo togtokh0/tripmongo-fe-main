@@ -35,7 +35,7 @@ const SearchDropdown = () => {
                   static
                   className="absolute right-0 z-10 w-screen max-w-sm mt-3"
                 >
-                  <form action="" method="POST">
+                  <form action="listing" method="get">
                     <Input
                       ref={inputRef}
                       type="search"

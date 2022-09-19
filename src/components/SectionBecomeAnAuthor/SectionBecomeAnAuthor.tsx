@@ -27,7 +27,7 @@ const SectionBecomeAnAuthor: FC<SectionBecomeAnAuthorProps> = ({
         <span className="block mt-6 text-neutral-500 dark:text-neutral-400">
           {auth.site_data.Why_did_you_choose_us_desc}
         </span>
-        <ButtonPrimary className="mt-6 sm:mt-11">
+        <ButtonPrimary className="mt-6 sm:mt-11" href={"about"}>
           {auth.site_data.Become_an_author}
         </ButtonPrimary>
       </div>
